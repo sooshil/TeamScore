@@ -1,12 +1,17 @@
 package com.example.teamscore.ui.fragments;
 
+import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -25,6 +30,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class SearchFragment extends Fragment {
 
@@ -33,6 +40,7 @@ public class SearchFragment extends Fragment {
     private TeamAdapter adapter;
     private RecyclerView recyclerView;
     private ProgressBar progressbar;
+    private Teams teams;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -75,9 +83,16 @@ public class SearchFragment extends Fragment {
             }
         });
         return view;
+
     }
 
+
     public void showTeamDetails(int position) {
+        String savedTeamName = teams.getTeams().get(position).getIdTeam();
+
+        SharedPreferences.Editor editor = getActivity().getSharedPreferences("TeamScoreApp", MODE_PRIVATE).edit();
+        editor.putString("savedTeamID", savedTeamName);
+        editor.apply();
 
         TeamDetailsFragment teamDetailsFragment = new TeamDetailsFragment();
         androidx.fragment.app.FragmentManager fragmentManager = getFragmentManager();
@@ -108,7 +123,7 @@ public class SearchFragment extends Fragment {
             public void onResponse(Call<Teams> call, Response<Teams> response) {
                 progressbar.setVisibility(View.GONE);
                 if(response.body() != null) {
-                    Teams teams = response.body();
+                    teams = response.body();
                     generateTeamList(teams);
                 }
             }
