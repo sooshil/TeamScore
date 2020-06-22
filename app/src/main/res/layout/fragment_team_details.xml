@@ -14,6 +14,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/imageViewTeamLogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/textViewTeamName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageViewTeamLogo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:gravity="center_horizontal"
+                android:text="TeamName"
+                android:textColor="@color/textColorDark"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/textViewLeague"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textViewTeamName"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="League Name:"
+                android:padding="5dp"
+                android:textColor="@color/textColorDark"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/textViewSportsName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textViewLeague"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="Sports Name:"
+                android:padding="5dp"
+                android:textColor="@color/textColorDark"
+                android:textSize="15sp"/>
+
+
             <include
                 layout="@layout/layout_loading"
                 android:layout_width="match_parent"
@@ -25,7 +72,6 @@
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

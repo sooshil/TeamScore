@@ -4,34 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+    tools:context=".ui.activity.MainActivity"
+    android:background="@color/background">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_team_list"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/myToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="?actionBarSize"
+        app:titleTextColor="@color/textColorWhite"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorAccent"
+        app:title="Team Details" />
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:minHeight="?actionBarSize"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:background="@color/colorAccent"-->
-<!--        app:title="Team Details" />-->
-
-<!--    -->
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/toolbar"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:minHeight="300dp"-->
-<!--        />-->
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/myToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:minHeight="300dp"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
