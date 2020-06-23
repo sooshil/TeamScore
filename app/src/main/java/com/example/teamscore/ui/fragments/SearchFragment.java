@@ -15,10 +15,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.teamscore.R;
@@ -26,6 +31,8 @@ import com.example.teamscore.model.Teams;
 import com.example.teamscore.network.RetrofitInstance;
 import com.example.teamscore.network.TeamsAPIInterface;
 import com.example.teamscore.ui.adapters.TeamAdapter;
+import com.example.teamscore.viewModel.TeamsViewModel;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,6 +48,7 @@ public class SearchFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProgressBar progressbar;
     private Teams teams;
+    private TeamsViewModel teamsViewModel;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -74,6 +82,7 @@ public class SearchFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view_team_list);
         progressbar = view.findViewById(R.id.my_progressbar);
 
+        teamsViewModel = new ViewModelProvider(getActivity()).get(TeamsViewModel.class);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +102,7 @@ public class SearchFragment extends Fragment {
         SharedPreferences.Editor editor = getActivity().getSharedPreferences("TeamScoreApp", MODE_PRIVATE).edit();
         editor.putString("savedTeamID", savedTeamName);
         editor.apply();
+        teamsViewModel.setTeams(teams.getTeams().get(position));
 
         TeamDetailsFragment teamDetailsFragment = new TeamDetailsFragment();
         androidx.fragment.app.FragmentManager fragmentManager = getFragmentManager();

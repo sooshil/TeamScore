@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import com.example.teamscore.R;
@@ -16,13 +18,15 @@ public class MainActivity extends AppCompatActivity {
     private TeamDetailsFragment teamDetailsFragment;
     private SharedPreferences sharedPreferences;
     private String userTeam = "savedTeamID";
+    public String userSelectedTeam;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         SharedPreferences prefs = this.getSharedPreferences("TeamScoreApp", Context.MODE_PRIVATE);
-        String userSelectedTeam = prefs.getString(userTeam, null);
+        userSelectedTeam = prefs.getString(userTeam, null);
         fm = getSupportFragmentManager();
 
         if(userSelectedTeam == null) {

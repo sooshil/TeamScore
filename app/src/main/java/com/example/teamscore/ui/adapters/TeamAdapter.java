@@ -4,8 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.teamscore.R;
 import com.example.teamscore.model.Teams;
 import com.example.teamscore.ui.fragments.SearchFragment;
@@ -14,6 +16,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
 
     private Teams dataList;
     private SearchFragment searchFragment;
+
 
     public TeamAdapter(SearchFragment searchFragment, Teams dataList) {
         this.dataList = dataList;
@@ -49,12 +52,18 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
                 }
             });
         }
-
     }
 
     @Override
     public int getItemCount() {
-        return dataList.getTeams().size();
+        if(dataList != null && dataList.getTeams() != null) {
+            return dataList.getTeams().size();
+        } else {
+            // toast is commented because this (adapter) is not right place to keep toast.
+            // if this is uncommented, we need to define Context context; and context = FragmentName.getContext() in constructor.
+            // Toast.makeText(context, "Team not found", Toast.LENGTH_SHORT).show();
+            return 0;
+        }
     }
 
     class TeamViewHolder extends RecyclerView.ViewHolder {
@@ -64,10 +73,10 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
 
         TeamViewHolder(View itemView) {
             super(itemView);
-            txtTeamID = (TextView) itemView.findViewById(R.id.txt_team_id);
-            txtTeamName = (TextView) itemView.findViewById(R.id.txt_team_name);
-            txtSportsName = (TextView) itemView.findViewById(R.id.txt_sports_name);
-            myConstraintLayout = (ConstraintLayout) itemView.findViewById(R.id.team_detail_card);
+            txtTeamID = itemView.findViewById(R.id.txt_team_id);
+            txtTeamName = itemView.findViewById(R.id.txt_team_name);
+            txtSportsName = itemView.findViewById(R.id.txt_sports_name);
+            myConstraintLayout = itemView.findViewById(R.id.team_detail_card);
         }
     }
 }

@@ -13,12 +13,23 @@
         android:layout_height="wrap_content"
         android:minHeight="?actionBarSize"
         app:titleTextColor="@color/textColorWhite"
-        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/colorAccent"
-        app:title="Team Details" />
+        >
+
+        <TextView
+            android:id="@+id/id_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Team Score App"
+            android:textColor="@color/textColorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            />
+    </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/main_frame"
