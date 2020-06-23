@@ -1,10 +1,7 @@
 package com.example.teamscore.network;
 
-import com.example.teamscore.model.Event;
+import com.example.teamscore.model.Results;
 import com.example.teamscore.model.Teams;
-
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -19,5 +16,5 @@ public interface TeamsAPIInterface {
 
     //https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=133602
     @GET("api/v1/json/1/eventslast.php")
-    Call<Event> getEvent(@Query("id") String id);
+    Call<Results.Event> getEvent(@Query("id") String id);
 }

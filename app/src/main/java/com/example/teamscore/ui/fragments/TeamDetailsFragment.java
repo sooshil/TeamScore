@@ -35,6 +35,8 @@ public class TeamDetailsFragment extends Fragment {
     private ImageView searchIcon;
     private TextView textViewTeamName, textViewLeague, textViewSportsName;
     private ImageView teamLogo;
+    TeamsAPIInterface teamsAPIInterface;
+
 
     public TeamDetailsFragment() {
         // Required empty public constructor
@@ -94,6 +96,8 @@ public class TeamDetailsFragment extends Fragment {
         if(imageUrl != null) {
             Picasso.get().load(imageUrl).into(teamLogo);
         }
+
+
     }
 
     private void goBackToSearch() {
