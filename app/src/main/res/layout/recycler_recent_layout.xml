@@ -15,7 +15,6 @@
         android:id="@+id/team_detail_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:orientation="vertical"
         android:padding="5dp">
 

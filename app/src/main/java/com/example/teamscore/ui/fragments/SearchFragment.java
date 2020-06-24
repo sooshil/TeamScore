@@ -30,6 +30,7 @@ import com.example.teamscore.R;
 import com.example.teamscore.model.Teams;
 import com.example.teamscore.network.RetrofitInstance;
 import com.example.teamscore.network.TeamsAPIInterface;
+import com.example.teamscore.ui.activity.MainActivity;
 import com.example.teamscore.ui.adapters.TeamAdapter;
 import com.example.teamscore.viewModel.TeamsViewModel;
 
@@ -49,6 +50,7 @@ public class SearchFragment extends Fragment {
     private ProgressBar progressbar;
     private Teams teams;
     private TeamsViewModel teamsViewModel;
+    private MainActivity activity;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -83,6 +85,11 @@ public class SearchFragment extends Fragment {
         progressbar = view.findViewById(R.id.my_progressbar);
 
         teamsViewModel = new ViewModelProvider(getActivity()).get(TeamsViewModel.class);
+
+        activity = ((MainActivity) getContext());
+        activity.toolbar.setTitle("Search Team");
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //activity.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override

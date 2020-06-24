@@ -3,10 +3,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import com.example.teamscore.R;
 import com.example.teamscore.ui.fragments.SearchFragment;
@@ -19,11 +19,15 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private String userTeam = "savedTeamID";
     public String userSelectedTeam;
+    public Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.myToolbar);
+        setSupportActionBar(toolbar);
 
         SharedPreferences prefs = this.getSharedPreferences("TeamScoreApp", Context.MODE_PRIVATE);
         userSelectedTeam = prefs.getString(userTeam, null);
@@ -42,14 +46,19 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
         }
-
-
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
     public void onBackPressed() {
-
+        super.onBackPressed();
     }
+
     //hide the keyboard from editText when out of focus
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {

@@ -19,16 +19,16 @@
         android:background="@color/colorAccent"
         >
 
-        <TextView
-            android:id="@+id/id_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Team Score App"
-            android:textColor="@color/textColorWhite"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/id_toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="Team Score App"-->
+<!--            android:textColor="@color/textColorWhite"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            />-->
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout

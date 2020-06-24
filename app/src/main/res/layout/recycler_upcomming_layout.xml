@@ -15,12 +15,11 @@
         android:id="@+id/team_detail_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:orientation="vertical"
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/textViewEventDate"
+            android:id="@+id/textViewUpcomingEventDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,24 +32,24 @@
             android:text="2020/05/30"/>
 
         <TextView
-            android:id="@+id/textViewHomeTeam"
+            android:id="@+id/textViewUpcomingHomeTeam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
             android:text="Sample Team 1"
             android:textColor="@color/textColorDark"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewEventDate" />
+            app:layout_constraintTop_toBottomOf="@id/textViewUpcomingEventDate" />
 
         <TextView
-            android:id="@+id/textViewAwayTeam"
+            android:id="@+id/textViewUpcomingAwayTeam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="3dp"
             android:text="Sample Team 2"
             android:textColor="@color/textColorDark"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewHomeTeam" />
+            app:layout_constraintTop_toBottomOf="@id/textViewUpcomingHomeTeam" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
